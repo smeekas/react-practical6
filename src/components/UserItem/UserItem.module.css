@@ -1,0 +1,52 @@
+.userItem {
+  display: grid;
+  grid-template-columns: 20rem 12rem 12rem 2rem;
+  padding: 0.5rem 0;
+  font-size: 14px;
+  align-items: center;
+  flex-direction: row;
+}
+.avatar_name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.avatar {
+  border-radius: 50%;
+  width: 2.8rem;
+  margin-right: 1rem;
+  height: 2.8rem;
+}
+
+.name_email {
+  flex: 2;
+}
+.name {
+  font-weight: bold;
+}
+.email {
+  color: #313131;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-right: 10rem;
+  color: #545353;
+}
+.lock:hover {
+  color: red;
+}
+.active {
+  color: #1ebd78;
+  font-weight: 600;
+}
+@media screen and (max-width: 1230px) {
+  .userItem {
+    grid-template-columns: 16rem 10rem 10rem 2rem;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .userItem {
+    grid-template-columns: 16rem 8rem 8rem 2rem;
+  }
+}
