@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+.cell {
+  padding: 8px;
+  margin: 0px 4px;
+  font-size: 1rem;
+  border: 2px solid #cecece;
+
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.cell:hover {
+  background-color: #cecece;
+}
+
+.current {
+  background-color: #007aff;
+  border: 2px solid #007aff;
+  color: white;
+}
+.current:hover {
+  background-color: #007aff;
+  border: 2px solid #007aff;
+  color: white;
+}

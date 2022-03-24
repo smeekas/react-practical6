@@ -1,0 +1,12 @@
+.menu {
+  outline: none;
+  border: none;
+  padding: 4px 0px;
+  font-size: 14px;
+}
+.menu:focus {
+  outline: none;
+}
+.menu:hover{
+    background-color: #d1d1d1;
+}
