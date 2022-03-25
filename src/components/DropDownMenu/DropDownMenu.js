@@ -1,7 +1,11 @@
 import styles from "./DropDownMenu.module.css";
-const DropDownMenu = ({ onChange, values, name }) => {
+const DropDownMenu = ({ onChange, values, name, className }) => {
   return (
-    <select onChange={onChange} className={styles.menu} name={name}>
+    <select
+      onChange={onChange}
+      className={className || styles.menu}
+      name={name}
+    >
       {values.map((valueName) => {
         return (
           <option key={valueName} value={valueName}>

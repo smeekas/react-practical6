@@ -1,10 +1,12 @@
 import "./App.css";
-import UserContainer from "./components/UserContainer/UserContainer";
+import UserContainer from "./Container/UserContainer";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchUsers } from "./store/user/userActions";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "./actions/userActions";
 function App() {
   const dispatch = useDispatch();
+  const perPage = useSelector((state) => state.pagination.perPage);
+  console.log(perPage)
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);

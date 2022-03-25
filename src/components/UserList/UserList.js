@@ -7,7 +7,6 @@ import { BarLoader } from "react-spinners";
 const UserList = () => {
   const user = useSelector((state) => state.user.data);
   const isLoading = useSelector((state) => state.ui.isLoading);
-  console.log(isLoading);
   const loaderStyle = `
  display:block;
   margin:auto;

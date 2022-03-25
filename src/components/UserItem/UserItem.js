@@ -4,22 +4,14 @@ import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import DropDownMenu from "../DropDownMenu/DropDownMenu";
 import Avatar from "../Avatar/Avatar";
-import { useState } from "react";
-import { deleteUser, hoverUser } from "../../store/user/userActions";
+
+import { hoverUser } from "../../actions/userActions";
 const UserItem = (props) => {
   const ID = props.data.id;
   const dispatch = useDispatch();
-  const [isActive, setIsActive] = useState(ID === 1 ? true : false);
-  const activeStateHandler = (event) => {
-    if (event.target.value === "Active") {
-      setIsActive(true);
-    }
-  };
-  const deleteHandler = () => {
-    dispatch(deleteUser(props.data.id));
-  };
+
   const hoverHandler = () => {
-    dispatch(hoverUser({ isActive: isActive, id: props.data.id }));
+    dispatch(hoverUser({ id: props.data.id }));
   };
   return (
     <motion.div
@@ -42,12 +34,8 @@ const UserItem = (props) => {
         </section>
       </div>
       <div className={styles.status}>
-        {!isActive ? (
-          <DropDownMenu
-            onChange={activeStateHandler}
-            name="status"
-            values={["inactive", "Active"]}
-          />
+        {!ID !== 1 ? (
+          <DropDownMenu name="status" values={["inactive", "Active"]} />
         ) : (
           <p className={styles.active}>Active</p>
         )}
@@ -62,10 +50,7 @@ const UserItem = (props) => {
       </div>
       {ID !== 1 ? (
         <div>
-          <FiTrash2
-            onClick={deleteHandler}
-            className={`${styles.icon} ${styles.lock}`}
-          />
+          <FiTrash2 className={`${styles.icon} ${styles.lock}`} />
         </div>
       ) : (
         <div>

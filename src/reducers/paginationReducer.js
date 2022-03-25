@@ -1,8 +1,8 @@
-import { paginationActionTypes } from "./paginationActionTypes";
+import { paginationActionTypes } from "../actionTypes/paginationActionTypes";
 
 const initialiPaginationState = {
   currentPage: 0,
-  perPage: 0,
+  perPage: 2,
   total: 0,
   totalPages: 0,
 };
@@ -21,6 +21,8 @@ export const paginationReducer = (state = initialiPaginationState, action) => {
         ...state,
         currentPage: action.currentPage,
       };
+    case paginationActionTypes.PER_PAGE_CHANGE:
+      return { ...state, perPage: action.perPage };
     default:
       return state;
   }

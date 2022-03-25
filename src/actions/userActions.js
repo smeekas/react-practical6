@@ -1,12 +1,13 @@
-import { userActionTypes } from "./userActionTypes";
-import { paginationActionTypes } from "../pagination/paginationActionTypes";
-import { uiActionTypes } from "../ui/uiActionTypes";
-export const fetchUsers = () => {
+import { userActionTypes } from "../actionTypes/userActionTypes";
+import { paginationActionTypes } from "../actionTypes/paginationActionTypes";
+import { uiActionTypes } from "../actionTypes/uiActionTypes";
+export const fetchUsers = (perPage = 2) => {
   return async (dispatch) => {
     dispatch({ type: uiActionTypes.LOADING });
-    const response = await fetch("https://reqres.in/api/users?page=1");
+    const response = await fetch(
+      `https://reqres.in/api/users?page=1&per_page=${perPage}`
+    );
     const data = await response.json();
-
     dispatch({
       type: paginationActionTypes.ADD_PAGINATION,
       currentPage: data.page,
@@ -19,11 +20,11 @@ export const fetchUsers = () => {
   };
 };
 
-export const fetchUsersPagination = (pageNumber) => {
+export const fetchUsersPagination = (pageNumber, perPage) => {
   return async (dispatch) => {
     dispatch({ type: uiActionTypes.LOADING });
     const response = await fetch(
-      `https://reqres.in/api/users?page=${pageNumber}`
+      `https://reqres.in/api/users?page=${pageNumber}&per_page=${perPage}`
     );
     const data = await response.json();
     dispatch({
@@ -35,9 +36,6 @@ export const fetchUsersPagination = (pageNumber) => {
   };
 };
 
-export const deleteUser = (id) => {
-  return { type: userActionTypes.DELETE_USER, id: id };
-};
-export const hoverUser = ({ isActive, id }) => {
-  return { type: userActionTypes.SHOW_USER, isActive: isActive, id: id };
+export const hoverUser = ({ id }) => {
+  return { type: userActionTypes.SHOW_USER, id: id };
 };

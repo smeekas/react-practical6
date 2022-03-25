@@ -1,4 +1,4 @@
-import { uiActionTypes } from "./uiActionTypes";
+import { uiActionTypes } from "../actionTypes/uiActionTypes";
 
 const initialUiState = {
   isLoading: false,
